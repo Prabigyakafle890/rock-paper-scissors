@@ -1,6 +1,8 @@
 let userScore=0;
 let compScore=0;
 let result= document.getElementById("result");
+compMessage=document.getElementById("comp");
+
 
 const genCompChoice = () => {
     const options=["rock", "paper", "scissors"];
@@ -11,8 +13,9 @@ const genCompChoice = () => {
 const playGame=(userChoice)=>{
 
  const compChoice= genCompChoice();
- console.log("computer choice=",compChoice)
- console.log("user choice=",userChoice);
+
+compMessage.style.display="block";
+compMessage.innerHTML=`Computer chose ${compChoice}.`;
 
  if(userChoice === compChoice){
    
@@ -39,18 +42,17 @@ userWin = compChoice==="paper"? false: true;
 const drawGame=()=>{
     userScore=userScore;
     compScore=compScore;
-      result.innerHTML="Game was draw."
-    console.log("Game was draw")
+    result.innerHTML="Game was draw."
+    
 }
 
 const scoreCalculator =(userWin,compChoice,userChoice)=>{
     if(userWin== true){
         userScore+=1;
-result.innerHTML="You won the game."
+        result.innerHTML="You won the game."
         document.getElementById('user-score').innerHTML=userScore;
         document.getElementById('comp-score').innerHTML=compScore;
-        console.log("user score=",userScore)
-        console.log("Computer score=",compScore)
+
     }
     else {
         compScore+=1;
